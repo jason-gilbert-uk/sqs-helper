@@ -111,7 +111,7 @@ async function readObjectFromSQS(queueUrl) {
            if (result.Messages) {
                result.Messages.map(async (msg)=>{
                     var deleteParams = {
-                        QueueUrl: queueName,
+                        QueueUrl: queueUrl,
                         ReceiptHandle: msg.ReceiptHandle
                     };
                     var result2 = await SQS.deleteMessage(deleteParams).promise();
