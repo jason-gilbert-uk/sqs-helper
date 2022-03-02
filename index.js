@@ -127,12 +127,12 @@ async function readObjectFromSQS(queueUrl) {
 //----------------------------------------------------------------------------
 // function: deleteSQS(queueURL)
 // deletes the sqs queue
-// returns stucture including all the messages read.
+// throws exception on unexpected errors.
 //----------------------------------------------------------------------------
 async function deleteSQS(queueUrl) {
 
     var params = {
-            QueueUrl: queueURL
+            QueueUrl: queueUrl
         };
     try {
         var result = await SQS.deleteQueue(params).promise();
