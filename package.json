@@ -1,6 +1,6 @@
 {
   "name": "@jasongilbertuk/sqs-helper",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A selection of helper functions when working with SQS",
   "main": "index.js",
   "scripts": {

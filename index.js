@@ -55,14 +55,19 @@ async function checkSQSExists(queueName) {
 // returns the name of the queues url.
 //----------------------------------------------------------------------------
 async function createSQSIfDoesntExist(queueName) {
-    var result = await checkSQSExists(queueName);
-    console.log('check SQS Exists result = ',result)
-    if ( result ) {
-        return result;
-    } else {
-        result = await createSQS(queueName);
-        console.log('createSQS response = ',result)
-        return result;
+    console.log('createSQSIfDoesntExist entered');
+    try {
+        var result = await checkSQSExists(queueName);
+        console.log('check SQS Exists result = ',result)
+        if ( result ) {
+            return result;
+        } else {
+            result = await createSQS(queueName);
+            console.log('createSQS response = ',result)
+            return result;
+        }    
+    } catch (err) {
+        console.log('error in createSQS if doesnt exist : ', err)
     }
 }
 
