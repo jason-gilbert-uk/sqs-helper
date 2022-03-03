@@ -56,10 +56,13 @@ async function checkSQSExists(queueName) {
 //----------------------------------------------------------------------------
 async function createSQSIfDoesntExist(queueName) {
     var result = await checkSQSExists(queueName);
+    console.log('check SQS Exists result = ',result)
     if ( result ) {
         return result;
     } else {
-        return await createSQS(queueName);
+        result = await createSQS(queueName);
+        console.log('createSQS response = ',result)
+        return result;
     }
 }
 
